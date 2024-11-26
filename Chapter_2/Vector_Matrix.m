@@ -285,4 +285,3 @@ Field3 = 'Bandgap'
 val_Field3 = {'1.12', '0.67', '0.07', '5.47', '0.33'}
 struct(Field1,val_Field1, Field2,val_Field2, Field3,val_Field3)
 
-

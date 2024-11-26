@@ -171,5 +171,117 @@ disp(A.*B);
 % Element wise division between two arrays
 fprintf('Element-wise division of two arrays:\n')
 disp(A./B);
+% Division: Numerator-scalar and denominator-array
+scalar_val = 5;
 fprintf('Division when numerator-scalar and denominator-array:\n')
-disp(scal)
+disp(scalar_val./A);
+% Power value: Either the base, or power is an array
+Base = 10;
+fprintf('Power term is an array:\n')
+disp(Base.^A)
+fprintf('Base term is an array:\n')
+disp(A.^scalar_val)
+
+% Table Array, Cell Araay, and Structure Array 
+% Creating table 
+clc;
+Battery_name = {'Li-ion'; 'Liquid super capacitor'; 'Lead acid'};
+Energy_density = [5; 2.5; 2];
+Life_cycle = [2; 5; 1.5];
+Safety = {'High'; 'Low'; 'Moderate'};
+TABLE = table(Battery_name, Energy_density, Life_cycle,Safety);
+fprintf('Comparison between different batery types:\n');
+fprintf('------------------------------------------\n');
+disp(TABLE);
+% Accessing each column of the table
+fprintf('Accessing the data batery_name column:\n');
+disp(TABLE.Battery_name);
+fprintf('Accessing the Energy_density column:\n');
+disp(TABLE.Energy_density);
+fprintf('Accessing the data Life_cycle column:\n');
+disp(TABLE.Life_cycle);
+fprintf('Accessing the data Safety column:\n');
+disp(TABLE.Safety); 
+
+% Cell Table
+clc;
+A = cell(2,3);
+A(1,:) = {3,4,4};
+A(2,:) = {'A', 'B', 'C'};
+fprintf('Cell array, A:\n');
+disp(A);
+
+% Structured Array 
+clc;
+Field1 = 'Battery_Name';
+val_Field1 = {'Li-ion', 'Liquid super capacitor', 'Lead acid'};
+Field2 = 'Energy_Density';
+val_Field2 = {5, 2.5, 2};
+Field3 = 'Life_cycle';
+val_Field3 = [2, 5, 1.5];
+Field4 = 'Safety';
+val_Field4 = {'High', 'Low', 'Moderate'};
+fprintf('Structure array of battery types and properties:\n');
+S = struct(Field1,val_Field1, Field2,val_Field2, ...
+    Field3,val_Field3, Field4,val_Field4);
+fprintf('Accessing first field of the structure:\n\n');
+disp(S(1));
+fprintf('Accessing second field of the structure:\n\n');
+disp(S(2));
+fprintf('Accessing third field of the structure:\n\n');
+disp(S(3));
+
+% Exercise 
+% clc;
+% What will be the output of the following commands?
+A = 3:3:15;
+B = [;];
+Z = [143, 324, 676, 432, 656, 978, 235, 768, 876, 234, 674];
+
+% 4. Consider three matrices given as follows:
+MatA = [4 7 1; 7 2 3; 5 5 9];
+MatB = [6 0 4; 9 8 1; 7 5 2];
+MatC = [2 5 3; 0 17 9; 8 0 1];
+
+MatD = MatA + MatB;
+MatE = MatB - MatC;
+MatF = MatA/MatC;
+MatG = MatB';
+MatH = det(MatC);
+MatI = inv(MatA);
+MatJ = horzcat(MatB, MatC);
+MatK = vertcat(MatC, MatA);
+
+% Determine MatA  MatB, MatB  MatA, and MatA.  MatB. Do the
+%results vary? If so, why? 
+
+MatA * MatB;
+MatB * MatA;
+MatA .* MatB;
+
+% Given an array a ¼ linspace(2,20,100). What is the mean, variance, standard
+% deviation, and mode of a?
+a = linspace(2, 20, 100);
+mean(a);
+var(a);
+std(a);
+mode(a);
+
+% Suppose you are working with ﬁve semiconductor materials, namely, silicon (Si),
+% germanium (Ge), tin (Sn), carbon (C), and tellurium (Te). Each of them has a
+% bandgap of 1.12, 0.67, 0.08, 5.47, and 0.33 eV, respectively, eV being their unit
+% of measurement.
+
+Serial_Number = {'1'; '2'; '3'; '4'; '5'};
+Element_Name = {'Silicon'; 'Germanium'; 'Tin'; 'Carbon'; 'Tellerium'};
+Bandgap = [1.12; 0.67; 0.08; 5.47; 0.03];
+Table = table(Serial_Number, Element_Name, Bandgap)
+
+Field1 = 'Serial_Number'
+val_Field1 = {'1', '2', '3', '4', '5'}
+Field2 = 'Element_Name'
+val_Field2 = {'Silicon', 'Germanium', 'Tin', 'Carbon', 'Tellium'}
+Field3 = 'Bandgap'
+val_Field3 = {}
+
+
